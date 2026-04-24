@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAMEER PATEL // SYSTEM ARCHITECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#e4d5ff",
+                    "surface": "#111318",
+                    "on-tertiary": "#3c0090",
+                    "outline-variant": "#3a494b",
+                    "on-primary": "#00373a",
+                    "inverse-on-surface": "#2f3035",
+                    "surface-container-high": "#282a2e",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "background": "#111318",
+                    "surface-container": "#1e2024",
+                    "on-secondary": "#2f3131",
+                    "primary-container": "#00f3ff",
+                    "primary": "#e3fdff",
+                    "on-secondary-fixed-variant": "#464747",
+                    "tertiary": "#fdf6ff",
+                    "surface-variant": "#333539",
+                    "surface-container-lowest": "#0c0e12",
+                    "secondary": "#c6c6c6",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-tint": "#00dce6",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "secondary-container": "#484949",
+                    "on-primary-fixed": "#002022",
+                    "outline": "#849495",
+                    "on-tertiary-fixed": "#23005b",
+                    "on-background": "#e2e2e8",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#00dce6",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#b9cacb",
+                    "surface-container-highest": "#333539",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#b8b8b8",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#006b71",
+                    "surface-dim": "#111318",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "on-surface": "#e2e2e8",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "primary-fixed": "#6ff6ff",
+                    "surface-container-low": "#1a1c20",
+                    "secondary-fixed": "#e3e2e2",
+                    "on-tertiary-container": "#741bff",
+                    "inverse-primary": "#00696f",
+                    "surface-bright": "#37393e",
+                    "inverse-surface": "#e2e2e8",
+                    "on-primary-fixed-variant": "#004f53"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "z-layer-1": "10px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-page": "64px",
+                    "z-layer-2": "40px",
+                    "z-layer-3": "100px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Space Grotesk"],
+                    "headline-lg": ["Inter"],
+                    "display-2xl": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-base": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-2xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-base": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0c0e12; overflow-x: hidden; }
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            border-color: #00f3ff;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+            transform: translateY(-5px) scale(1.02);
+        }
+        .wireframe-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 243, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+        }
+        .orb-animation {
+            animation: orbital-float 12s linear infinite;
+        }
+        @keyframes orbital-float {
+            0% { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+        }
+        .parallax-layer-1 { transform: translateZ(50px); }
+        .parallax-layer-2 { transform: translateZ(20px); }
+    </style>
+</head>
+<body class="font-body-base text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- HUD Elements (Z-Axis Framing) -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[60] border-[16px] border-transparent">
+<div class="absolute top-8 left-8 flex flex-col gap-1">
+<div class="w-12 h-0.5 bg-primary-container/40"></div>
+<div class="font-label-caps text-primary-container/60 text-[8px]">LAT: 23.0225° N</div>
+<div class="font-label-caps text-primary-container/60 text-[8px]">LONG: 72.5714° E</div>
+</div>
+<div class="absolute bottom-8 right-8 flex flex-col items-end gap-1">
+<div class="w-12 h-0.5 bg-primary-container/40"></div>
+<div class="font-label-caps text-primary-container/60 text-[8px]">SYS_STATUS: OPTIMAL</div>
+<div class="font-label-caps text-primary-container/60 text-[8px]">CORE_TEMP: 32°C</div>
+</div>
+</div>
+<!-- Navigation Shell -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 max-w-6xl mx-auto bg-slate-950/40 backdrop-blur-[20px] rounded-full border border-white/10 mt-6 shadow-[0_0_40px_rgba(0,243,255,0.15)] transition-transform active:scale-95">
+<div class="text-xl font-black text-cyan-400 tracking-tighter drop-shadow-[0_0_8px_rgba(0,243,255,0.6)]">SAMEER PATEL</div>
+<nav class="hidden md:flex gap-8 font-inter tracking-tight uppercase text-sm font-semibold">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 hover:scale-105 transition-all duration-300" href="#projects">Projects</a>
+<a class="text-slate-400 hover:text-cyan-200 hover:scale-105 transition-all duration-300" href="#experience">Experience</a>
+<a class="text-slate-400 hover:text-cyan-200 hover:scale-105 transition-all duration-300" href="#stack">Stack</a>
+<a class="text-slate-400 hover:text-cyan-200 hover:scale-105 transition-all duration-300" href="#contact">Contact</a>
+</nav>
+<button class="bg-primary-container/10 border border-primary-container/30 text-primary-container px-6 py-2 rounded-full font-label-caps text-[10px] hover:bg-primary-container hover:text-on-primary-container transition-all">
+            Connect
+        </button>
+</header>
+<!-- Side HUD Navigation -->
+<aside class="fixed left-0 top-1/2 -translate-y-1/2 h-[614px] w-20 flex flex-col items-center py-8 z-40 bg-slate-950/20 backdrop-blur-md rounded-r-lg border-r border-white/10 shadow-[20px_0_40px_rgba(0,0,0,0.5)]">
+<div class="mb-auto">
+<span class="text-cyan-50 font-bold font-label-caps text-[10px] origin-center -rotate-90 block mb-4">PATEL_OS</span>
+</div>
+<div class="flex flex-col gap-8">
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="p-2 rounded bg-cyan-400/10 text-cyan-400 border-r-2 border-cyan-400">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<span class="font-label-caps text-[8px] text-cyan-400">Terminal</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="p-2 rounded text-slate-500 group-hover:bg-white/5 group-hover:text-cyan-300 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="lan">lan</span>
+</div>
+<span class="font-label-caps text-[8px] text-slate-500 group-hover:text-cyan-300">Network</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="p-2 rounded text-slate-500 group-hover:bg-white/5 group-hover:text-cyan-300 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="database">database</span>
+</div>
+<span class="font-label-caps text-[8px] text-slate-500 group-hover:text-cyan-300">Assets</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="p-2 rounded text-slate-500 group-hover:bg-white/5 group-hover:text-cyan-300 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="sensors">sensors</span>
+</div>
+<span class="font-label-caps text-[8px] text-slate-500 group-hover:text-cyan-300">Status</span>
+</div>
+</div>
+<div class="mt-auto">
+<span class="text-slate-500 font-label-caps text-[8px]">v2.0.4</span>
+</div>
+</aside>
+<main class="relative z-10">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden wireframe-bg">
+<!-- Background Three.js Placeholder Shape -->
+<div class="absolute inset-0 z-0 flex items-center justify-center opacity-20">
+<div class="w-[800px] h-[800px] border border-primary-container/20 rounded-full animate-[spin_60s_linear_infinite]"></div>
+<div class="absolute w-[600px] h-[600px] border border-primary-container/10 rounded-full animate-[spin_40s_linear_infinite_reverse]"></div>
+</div>
+<div class="container max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center gap-16 relative z-10">
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<div class="h-[1px] w-12 bg-primary-container"></div>
+<span class="font-label-caps text-primary-container tracking-widest">SYSTEM_ARCHITECT // FULL_STACK</span>
+</div>
+<h1 class="font-display-2xl text-white leading-tight">
+                        CRAFTING <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-cyan-200 glow-cyan">DIGITAL</span> DIMENSIONS.
+                    </h1>
+<p class="text-slate-400 font-body-base max-w-lg">
+                        High-performance solutions bridging the gap between abstract code and immersive user experiences. Specialist in glassmorphism aesthetics and technical precision.
+                    </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl font-headline-md text-sm hover:scale-105 transition-transform flex items-center gap-2 group">
+                            VIEW_PROJECTS
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="border border-white/10 backdrop-blur-md px-8 py-4 rounded-xl font-headline-md text-sm hover:bg-white/5 transition-colors">
+                            DOWNLOAD_CV
+                        </button>
+</div>
+</div>
+<div class="flex-1 relative">
+<!-- 3D Orbital Portrait Structure -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+<div class="absolute inset-0 rounded-full border-2 border-primary-container/30 orb-animation"></div>
+<div class="absolute inset-4 rounded-full border border-white/10 animate-[spin_20s_linear_infinite_reverse]"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-900 shadow-[0_0_50px_rgba(0,243,255,0.3)] relative group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Professional portrait of Sameer Patel in a leather jacket and sunglasses, integrated into a technical HUD frame" src="https://lh3.googleusercontent.com/aida/ADBb0uj_QEnAw1Agk7XYTqfD-R0GpNSXX5IwxFfp4uxnGyvD0J23Uw8n7-SqP179pJXdv87OI71S7rA-LfJ8WytYkraI2bj5OuoOVXyzQ3i2b5CW4g2vG08QXxGwv9ffFLY0FZaQXV96TRK_LFcrK3-Nh5KyoVNizdxwaMQHzERxIF7LE5iPpd7-Ha-i8GdLm_ILhmataWWbE5sLR5ffLKt_aZyUU6lVOqTmsb7PUVhQYIpPbnnzskHF0yYZ8dpOkBth8QfE1NmirE080w"/>
+<div class="absolute inset-0 bg-primary-container/20 mix-blend-overlay"></div>
+</div>
+</div>
+<!-- HUD Labels on portrait -->
+<div class="absolute -top-4 -right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded text-[10px] font-label-caps text-primary-container">
+                            OBJ_ID: SP_001
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section: Interactive Nodes -->
+<section class="py-24 relative" id="stack">
+<div class="container max-w-6xl mx-auto px-8">
+<div class="text-center mb-20 space-y-4">
+<h2 class="font-headline-lg text-white">TECHNICAL_STACK</h2>
+<div class="w-24 h-1 bg-primary-container mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Web Tech -->
+<div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="cloud">cloud</span>
+</div>
+<h3 class="font-headline-md text-primary-container mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+                            WEB_DEVELOPMENT
+                        </h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between font-label-caps text-[10px]">
+<span>HTML / CSS</span>
+<span>95%</span>
+</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full w-[95%] bg-gradient-to-r from-primary-container to-cyan-500 relative">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-label-caps text-[10px]">
+<span>JAVASCRIPT</span>
+<span>88%</span>
+</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full w-[88%] bg-gradient-to-r from-primary-container to-cyan-500 relative">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Software Tools -->
+<div class="glass-card p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-headline-md text-primary-container mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="data_exploration">data_exploration</span>
+                            SOFTWARE_MANAGEMENT
+                        </h3>
+<div class="flex flex-wrap gap-4">
+<div class="px-4 py-2 border border-white/10 rounded-lg bg-white/5 flex items-center gap-2 hover:border-primary-container transition-colors cursor-default">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
+<span class="font-label-caps text-[12px]">MS OFFICE</span>
+</div>
+<div class="px-4 py-2 border border-white/10 rounded-lg bg-white/5 flex items-center gap-2 hover:border-primary-container transition-colors cursor-default">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance">account_balance</span>
+<span class="font-label-caps text-[12px]">TALLY ERP</span>
+</div>
+<div class="px-4 py-2 border border-white/10 rounded-lg bg-white/5 flex items-center gap-2 hover:border-primary-container transition-colors cursor-default">
+<span class="material-symbols-outlined text-sm" data-icon="monitoring">monitoring</span>
+<span class="font-label-caps text-[12px]">SYSTEM_ARCH</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section: Holographic Cards -->
+<section class="py-24 bg-surface-container-lowest/50" id="projects">
+<div class="container max-w-6xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div class="space-y-2">
+<h2 class="font-headline-lg text-white">FEATURED_PROJECTS</h2>
+<p class="text-slate-500 font-label-caps text-xs">SELECTED WORKS // 2023-2024</p>
+</div>
+<div class="hidden md:block h-[1px] flex-1 mx-12 bg-white/5"></div>
+<button class="text-primary-container font-label-caps text-xs flex items-center gap-2 hover:opacity-70">
+                        VIEW_ALL_REPOS
+                        <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 -->
+<div class="glass-card group rounded-3xl overflow-hidden">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern web dashboard interface with sleek glassmorphic UI elements and data visualizations in dark mode" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3PWeK3CavDUMBTgj9YNV6R6qIAST5WPm7NR1ZTFdjP9VvLHJn-E3SzErBQNihPAxiLLVkGbn6h5ojO8g2EDiQC8LPOLArGD363S_VgQbf2I1CywliGSNnMLzIGjfb7prWUgH2ipx6xzNrPsyFJNpU0E4IvAL1F4-NnG1bCpix16VWk8K14N0hp-8ickim2tSyTI_S2FCDbzgHGoI_C_0f75Xb_cvymwYL64PcJvuUJ48ilb3FFqx213wf73Jztk9FdlJWJXObLJE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-2">
+<span class="px-3 py-1 bg-primary-container/20 text-primary-container text-[10px] font-label-caps rounded-full border border-primary-container/30">VUE.JS</span>
+<span class="px-3 py-1 bg-white/10 text-white text-[10px] font-label-caps rounded-full border border-white/20">TAILWIND</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline-md text-white group-hover:text-primary-container transition-colors">Personal Portfolio v3</h3>
+<p class="text-slate-400 text-sm">Advanced 3D portfolio featuring custom shader-based backgrounds and spatial navigation logic.</p>
+<a class="inline-flex items-center gap-2 text-primary-container font-label-caps text-[10px] tracking-[0.2em] mt-4 hover:translate-x-2 transition-transform" href="#">
+                                EXPLORE_SOURCE <span class="material-symbols-outlined text-sm" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-card group rounded-3xl overflow-hidden">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Clean minimal landing page design for a technology startup with high-quality typography and subtle gradients" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOF4aYorgIIhPSwMLdk6cB4X5BLDnIpmftFTC7rHwWMdSalq2hsiTPRDEp_ar_00EsAEMdjcXTWDuR5a1jWdIzCah6K37jYi-wX4nxNiLuqMKsHd8uS2RfYvRk7NgEocKMOIqrOQgDnaullsH-rJ7d1CQcAc2kTFMMi1TgkHJCnyXhXYAQD647SeIo0LrWAntrqJ4nvP-FxYTynf7Yg_eya-ySvu3bc_Gf7oRI-Pm9jYs5vFCq-stBGkYO-Edi0EmwWTBN3Jp6oa0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-2">
+<span class="px-3 py-1 bg-primary-container/20 text-primary-container text-[10px] font-label-caps rounded-full border border-primary-container/30">REACT</span>
+<span class="px-3 py-1 bg-white/10 text-white text-[10px] font-label-caps rounded-full border border-white/20">GSAP</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline-md text-white group-hover:text-primary-container transition-colors">Modern Landing Page</h3>
+<p class="text-slate-400 text-sm">High-conversion landing page design focusing on kinetic typography and smooth scroll physics.</p>
+<a class="inline-flex items-center gap-2 text-primary-container font-label-caps text-[10px] tracking-[0.2em] mt-4 hover:translate-x-2 transition-transform" href="#">
+                                EXPLORE_SOURCE <span class="material-symbols-outlined text-sm" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-card group rounded-3xl overflow-hidden">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Educational interactive interface with colorful cards and cultural elements of India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMsiFOulHqTC61OgbiJ-CaKxwxeC8XI5MtgYnwrMm3z__c-dFr9hTmJcRX0GU3BYhGYdGexMWCC0I8O_G2ZWJiOI-7XNvXrbA8nJt46e_JHYkdsKvCxKTY-rlvBVaf361tUfnQq_Saz7piwMpJNbt03GAeYSGTREFCh2_X_kdvg8CtdtoI-j3AINyzwCVxTa-4SXoTqN_2Rl2oTYMkDgfrpqFCNUhfzn7Jv4FrtZu86JpVYyQ3gTO9D88ykA-NnhetnOF7tc5cnqo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-2">
+<span class="px-3 py-1 bg-primary-container/20 text-primary-container text-[10px] font-label-caps rounded-full border border-primary-container/30">VANILLA_JS</span>
+<span class="px-3 py-1 bg-white/10 text-white text-[10px] font-label-caps rounded-full border border-white/20">LOTTIE</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline-md text-white group-hover:text-primary-container transition-colors">Quiz about India</h3>
+<p class="text-slate-400 text-sm">Gamified educational platform with real-time score tracking and interactive map modules.</p>
+<a class="inline-flex items-center gap-2 text-primary-container font-label-caps text-[10px] tracking-[0.2em] mt-4 hover:translate-x-2 transition-transform" href="#">
+                                EXPLORE_SOURCE <span class="material-symbols-outlined text-sm" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="glass-card group rounded-3xl overflow-hidden">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Collection of abstract coding experiments shown as code snippets floating in a 3D dark space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR6gK69QQvoesuWtmgVBpjfY3YPUvEYp57wA9j34uUVZGY7zJG0rA7IgIMZECvrYI8nT4EAanu5oax9y4xEAvmA5G3H77ZUF9HxSo31UxbXqOSdHHS7_xhbPGkVOxecXDemMkhswLiYCwioNVYVAdgpvgp164QFHDpA9xFOdPwCXTrk4ZJFbbQj2EDaN8MhdCNbjMpXE3ZiGBZJ81ebhq7CeILsKM2TYmbfIEpNheZJR0hW6IN9nsui1YILdKi0N8eOh9B3K67g-A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex gap-2">
+<span class="px-3 py-1 bg-primary-container/20 text-primary-container text-[10px] font-label-caps rounded-full border border-primary-container/30">JS_UTILS</span>
+<span class="px-3 py-1 bg-white/10 text-white text-[10px] font-label-caps rounded-full border border-white/20">ALGORITHMS</span>
+</div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="font-headline-md text-white group-hover:text-primary-container transition-colors">Mini JS Projects</h3>
+<p class="text-slate-400 text-sm">A laboratory of micro-interactions and logic utility scripts for everyday development.</p>
+<a class="inline-flex items-center gap-2 text-primary-container font-label-caps text-[10px] tracking-[0.2em] mt-4 hover:translate-x-2 transition-transform" href="#">
+                                EXPLORE_SOURCE <span class="material-symbols-outlined text-sm" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interests Section: 3D Cloud Feel -->
+<section class="py-24 relative overflow-hidden">
+<div class="container max-w-6xl mx-auto px-8 relative">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-block px-4 py-1 border border-primary-container/30 rounded-full bg-primary-container/5 font-label-caps text-[10px] text-primary-container">
+                            BEYOND_THE_CONSOLE
+                        </div>
+<h2 class="font-display-2xl text-white">HUMAN_INTERESTS</h2>
+<p class="text-slate-400 font-body-base leading-relaxed">
+                            My creative fuel comes from diverse environments—from the digital landscapes of competitive gaming to the tangible cycles of farming.
+                        </p>
+</div>
+<div class="relative min-h-[400px] flex items-center justify-center">
+<!-- Interest "Cloud" Nodes -->
+<div class="absolute glass-card px-6 py-3 rounded-full animate-pulse top-0 left-10 hover:scale-110 cursor-default">
+<span class="font-label-caps text-cyan-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="brush">brush</span> UI/UX DESIGN
+                            </span>
+</div>
+<div class="absolute glass-card px-6 py-3 rounded-full top-20 right-0 hover:scale-110 cursor-default transition-transform">
+<span class="font-label-caps text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="movie">movie</span> VIDEO EDITING
+                            </span>
+</div>
+<div class="absolute glass-card px-6 py-3 rounded-full bottom-20 left-0 hover:scale-110 cursor-default transition-transform">
+<span class="font-label-caps text-cyan-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="flight">flight</span> TRAVELING
+                            </span>
+</div>
+<div class="absolute glass-card px-6 py-3 rounded-full bottom-0 right-10 hover:scale-110 cursor-default transition-transform">
+<span class="font-label-caps text-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="potted_plant" data-weight="fill">potted_plant</span> FARMING
+                            </span>
+</div>
+<div class="absolute glass-card px-8 py-4 rounded-full border-primary-container/50 bg-primary-container/10 hover:scale-125 cursor-default transition-transform">
+<span class="font-label-caps text-primary-container font-bold flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span> GAMING
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 border-t border-white/5" id="contact">
+<div class="container max-w-4xl mx-auto px-8 text-center space-y-12">
+<h2 class="font-headline-lg text-white">START_A_DIALOGUE</h2>
+<div class="glass-card p-12 rounded-[2rem] space-y-8 relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-48 h-48 bg-primary-container/10 blur-[80px]"></div>
+<p class="text-slate-400 font-headline-md max-w-lg mx-auto">
+                        Ready to build something that exists in the third dimension? Let's connect.
+                    </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a class="bg-primary-container text-on-primary-container px-10 py-5 rounded-2xl font-headline-md text-base hover:shadow-[0_0_40px_rgba(0,243,255,0.4)] transition-all flex items-center justify-center gap-3" href="mailto:sameerpatel2999@gmail.com">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                            SEND_EMAIL
+                        </a>
+<div class="flex gap-4">
+<a class="flex-1 glass-card p-5 rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-white" data-icon="link">link</span>
+<span class="ml-3 font-label-caps text-xs">LINKEDIN</span>
+</a>
+<a class="flex-1 glass-card p-5 rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-white" data-icon="photo_camera">photo_camera</span>
+<span class="ml-3 font-label-caps text-xs">INSTAGRAM</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center opacity-60 font-inter text-[10px] tracking-widest text-slate-500 border-t border-white/5">
+<div class="mb-4 md:mb-0">
+<span class="text-slate-200 font-bold">SAMEER PATEL</span> © 2024 SYSTEM_ARCHITECT // SP
+        </div>
+<div class="flex gap-8">
+<a class="hover:text-cyan-400 transition-colors" href="#">GITHUB</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">LINKEDIN</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">TWITTER</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">LAYERS</a>
+</div>
+</footer>
+<!-- FAB for direct contact -->
+<div class="fixed bottom-8 right-8 z-[100] group md:hidden">
+<a class="w-16 h-16 rounded-full bg-primary-container shadow-[0_0_20px_rgba(0,243,255,0.5)] flex items-center justify-center text-on-primary-container" href="mailto:sameerpatel2999@gmail.com">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</a>
+</div>
+</body></html>
